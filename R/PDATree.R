@@ -1,6 +1,7 @@
 #' Find PP tree structure using PDA index
 #' 
 #' Find tree structure using projection pursuit in each split. 
+#' @usage PDA.Tree(i.class, i.data, weight = TRUE, lambda=1, ...)
 #' @param i.data A training data  without class information
 #' @param i.class class information
 #' @param weight weight flag using in LDA index
