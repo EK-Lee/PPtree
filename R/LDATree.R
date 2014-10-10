@@ -5,12 +5,12 @@
 #' @param i.data A training data  without class information
 #' @param i.class class information
 #' @param weight weight flag using in LDA index
-#' @return Tree.Struct Tree structure
-#' @return Alpha.Keep 1D projection of each split
-#' @return C.Keep spliting rule for each split
-#' @references Lee, E., Cook, D., Klinke, S.,  Lumley, T.(2005) 
-#' Projection Pursuit for Exploratory Supervised Classification, 
-#' Journal of Computational and Graphical Statistics, 14(4):831-846.
+#' @return Tree.Struct Tree structure of PPtree result
+#' @return Alpha.Keep 1D projections of each split
+#' @return C.Keep spliting rules for each split
+#' @references Lee, YD, Cook, D., Park JW, and Lee, EK(2013) 
+#' PPtree: Projection pursuit classification tree, 
+#' Electronic Journal of Statistics, 7:1369-1386.
 #' @export
 #' @keywords tree
 #' @seealso {\code{\link{PPindex.class}}, \code{\link{PP.optimize}}}
@@ -23,6 +23,7 @@
 #' test <- tot[-train]
 #' Tree.result <- LDA.Tree(iris[train,5],iris[train,1:4])
 #' Tree.result
+LDA.Tree<-function( i.class, i.data, weight = TRUE, ...) 
 {
     i.data <- as.matrix(i.data)
     Find.proj <- function(i.class, i.data,  ...) {
