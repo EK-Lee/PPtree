@@ -33,7 +33,7 @@ PDA.Tree<-function( i.class, i.data, weight = TRUE, lambda=1,  ...)
         g <- table(i.class)
         g.name <- as.numeric(factor(names(g)))
         G <- length(g)
-        a.proj.best <- PenalizedLDA(i.data,as.numeric(as.factor(i.class)),lambda=lambda,K=1)$discrim[,1]
+        a.proj.best <- penalizedLDA::PenalizedLDA(i.data,as.numeric(as.factor(i.class)),lambda=lambda,K=1)$discrim[,1]
         proj.data <- as.matrix(i.data) %*% a.proj.best
         sign <- sign(a.proj.best[abs(a.proj.best) == max(abs(a.proj.best))])
         index <- (1:p) * (abs(a.proj.best) == max(abs(a.proj.best)))
@@ -64,7 +64,7 @@ PDA.Tree<-function( i.class, i.data, weight = TRUE, lambda=1,  ...)
             g.name <- as.numeric(names(g))
             G <- length(g)
             n <- nrow(i.data)
-            a.proj.best <- PenalizedLDA(i.data,class,lambda=lambda,K=1)$discrim[,1]
+            a.proj.best <- penalizedLDA::PenalizedLDA(i.data,class,lambda=lambda,K=1)$discrim[,1]
             if (sign != sign(a.proj.best[index])) 
                 a.proj.best <- -a.proj.best
             proj.data <- as.matrix(i.data) %*% a.proj.best
